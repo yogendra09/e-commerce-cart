@@ -5,7 +5,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BsHandbag } from "react-icons/bs";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 const page = ({ params }) => {
+  const router = useRouter();
   const dispatch = useDispatch();
   const [product, setproduct] = useState({});
   const [images, setimages] = useState([]);
@@ -124,11 +126,16 @@ const page = ({ params }) => {
                     className="inline-flex gap-4 items-center justify-center rounded-md border-2 border-transparent bg-green-700 bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800"
                   >
                     <BsHandbag className="text-2xl" />
-                    Added to cart
+                    Go to cart
                   </Link>
                 ) : (
                   <button
-                    onClick={addItemToCart}
+                    onClick={()=>{
+                      addItemToCart();
+                      setTimeout(()=>{
+                        router.push("/auth/cart")
+                      },500)
+                    }}
                     type="button"
                     className="inline-flex gap-4 items-center justify-center rounded-md border-2 border-transparent bg-gray-900 bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800"
                   >

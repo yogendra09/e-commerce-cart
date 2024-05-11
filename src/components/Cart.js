@@ -21,8 +21,8 @@ const Cart = () => {
         <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
           <div className="product-continer rounded-lg md:w-2/3">
             {items &&
-              items.map((product) => {
-                return <CartProduct price={product.price} image={product.images[0]} title={product.title}  quantity={product.quantity} product={product} />;
+              items.map((product,i) => {
+                return <CartProduct key={i} price={product.price} image={product.images[0]} title={product.title}  quantity={product.quantity} product={product} />;
               })}
            
           </div>
