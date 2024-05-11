@@ -18,8 +18,8 @@ export const cartReducer = createSlice({
       state.items[index] = action.payload;
     },
     deleteFromCart: (state, action) => {
-     const index = state.items.findIndex(
-       (item) => item.id === action.payload.id
+     const index = state.items.filter(
+       (item) => item.id !== action.payload.id
      );
      state.items.splice(index, 1);
     },

@@ -26,6 +26,7 @@ const CartProduct = ({ image, title, price, quantity, product }) => {
             <div className="flex items-center border-gray-100">
               
               <select
+              value={quantity}
                 onChange={(e) => updateCartProduct(e.target.value, product)}
               >
                 <option value="1">1</option>
