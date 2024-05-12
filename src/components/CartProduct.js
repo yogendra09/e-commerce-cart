@@ -41,7 +41,7 @@ const CartProduct = ({ image, title, price, quantity, product }) => {
             <div className="flex items-center space-x-4">
               <p className="text-sm">{price * quantity}</p>
               <IoCloseOutline onClick={()=>{
-                // dispatch(deleteFromCart(items,product))
+                dispatch(deleteFromCart(product))
               }} />
             </div>
           </div>
